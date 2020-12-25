@@ -2,12 +2,14 @@
 #define BASE_H
 
 #include <cstddef>
-#include <string>
 #include <optional>
+#include <string>
 #include <string_view>
 #include <type_traits>
 #include <iterator>
+#include <limits>
 #include <concepts>
+#include <exception>
 
 namespace base
 {
@@ -65,7 +67,7 @@ namespace base
             typename M::mapped_type
     {
         auto iter = map.find(key);
-        if(iter != std::end(map))
+        if(iter != end(map))
         {
             return iter->second;
         }
